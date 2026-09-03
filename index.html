@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samir Jana | Computer Science Engineer & Developer</title>
+  <meta name="description" content="Samir Jana - Computer Science & Engineering student at Lovely Professional University (CGPA 8.69), Full-Stack Developer, and Embedded Systems Enthusiast.">
+  <meta name="author" content="Samir Jana">
+  <meta name="theme-color" content="#080c14">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            amber: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            heading: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"DM Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Embedded Premium Styling (Zero external CSS dependency) -->
+  <style>
+    :root {
+      --font-primary: 'Plus Jakarta Sans', sans-serif;
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-mono: 'DM Mono', monospace;
+
+      --bg-body: #080c14;
+      --bg-surface: #0f172a;
+      --bg-card: rgba(15, 23, 42, 0.75);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-gold: #f59e0b;
+      --accent-gold-glow: rgba(245, 158, 11, 0.25);
+    }
+
+    html.dark {
+      color-scheme: dark;
+    }
+
+    html:not(.dark) {
+      --bg-body: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: rgba(255, 255, 255, 0.9);
+      --border-subtle: rgba(203, 213, 225, 0.8);
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --accent-gold: #d97706;
+      --accent-gold-glow: rgba(217, 119, 6, 0.15);
+      color-scheme: light;
+    }
+
+    body {
+      font-family: var(--font-primary);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, .font-heading {
+      font-family: var(--font-heading);
+    }
+
+    code, .font-mono {
+      font-family: var(--font-mono);
+    }
+
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg-body);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1e293b;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-gold);
+    }
+
+    .glass-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    html:not(.dark) .glass-panel {
+      box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.06);
+    }
+
+    .glass-nav {
+      background: rgba(8, 12, 20, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    html:not(.dark) .glass-nav {
+      background: rgba(255, 255, 255, 0.9);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+    }
+
+    .highlight-gold {
+      color: var(--accent-gold);
+    }
+
+    .gradient-text-gold {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 60%, #ea580c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-gold);
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+    }
+
+    .hero-glow-halo {
+      position: absolute;
+      inset: -12px;
+      border-radius: 9999px;
+      background: radial-gradient(circle, rgba(245, 158, 11, 0.4) 0%, rgba(6, 182, 212, 0.2) 50%, transparent 70%);
+      filter: blur(20px);
+      z-index: 0;
+      animation: haloPulse 5s ease-in-out infinite alternate;
+    }
+
+    @keyframes haloPulse {
+      0% { transform: scale(0.95); opacity: 0.6; }
+      100% { transform: scale(1.08); opacity: 0.95; }
+    }
+
+    .circuit-orbit-container {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .circuit-ring-outer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px dashed rgba(245, 158, 11, 0.35);
+      animation: spinSlow 24s linear infinite;
+    }
+
+    .circuit-ring-inner {
+      position: absolute;
+      width: 68%;
+      height: 68%;
+      border-radius: 50%;
+      border: 1.5px solid rgba(6, 182, 212, 0.4);
+      animation: spinSlow 16s linear infinite reverse;
+    }
+
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .timeline-marker-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      border: 3px solid var(--bg-body);
+      box-shadow: 0 0 10px var(--accent-gold-glow);
+    }
+
+    .timeline-marker-dot.active {
+      background: #10b981;
+      box-shadow: 0 0 14px rgba(16, 185, 129, 0.8);
+      animation: pulseGreen 2s infinite;
+    }
+
+    @keyframes pulseGreen {
+      0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    html:not(.dark) .bg-slate-950 { background-color: #f8fafc !important; }
+    html:not(.dark) .bg-slate-900 { background-color: #ffffff !important; }
+    html:not(.dark) .bg-slate-900\/80, html:not(.dark) .bg-slate-900\/90 { background-color: rgba(255, 255, 255, 0.95) !important; }
+    html:not(.dark) .bg-slate-800 { background-color: #f1f5f9 !important; }
+    html:not(.dark) .bg-slate-800\/50, html:not(.dark) .bg-slate-800\/80 { background-color: #f8fafc !important; }
+    html:not(.dark) .text-white { color: #0f172a !important; }
+    html:not(.dark) .text-slate-300 { color: #334155 !important; }
+    html:not(.dark) .text-slate-400 { color: #64748b !important; }
+    html:not(.dark) .border-slate-800, html:not(.dark) .border-slate-700 { border-color: #e2e8f0 !important; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased selection:bg-amber-500 selection:text-slate-950 transition-colors duration-300 min-h-screen flex flex-col relative overflow-x-hidden">
+
+  <!-- Top Scroll Progress Indicator -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-amber-400 via-yellow-500 to-cyan-500 z-[100] transition-all duration-75 w-0"></div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="fixed bottom-6 right-6 z-[110] flex flex-col space-y-3 max-w-sm pointer-events-auto"></div>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION BAR
+       ========================================================================== -->
+  <header class="sticky top-0 z-40 w-full glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo / Brand -->
+        <a href="#home" class="flex items-center space-x-2 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center text-slate-950 font-black text-lg font-heading shadow-lg group-hover:scale-105 transition-transform">
+            SJ
+          </div>
+          <div>
+            <span class="text-xl font-heading font-extrabold tracking-tight text-white group-hover:text-amber-400 transition-colors">Samir Jana</span>
+            <span class="text-amber-400 font-extrabold text-xl leading-none">.</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden lg:flex items-center space-x-1 xl:space-x-2">
+          <a href="#home" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-amber-400 hover:bg-slate-900/40 transition-all">Home</a>
+          <a href="#about" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-amber-400 hover:bg-slate-900/40 transition-all">About</a>
+          <a href="#skills" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-amber-400 hover:bg-slate-900/40 transition-all">Skills</a>
+          <a href="#projects" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-amber-400 hover:bg-slate-900/40 transition-all">Projects</a>
+          <a href="#certificates" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-amber-400 hover:bg-slate-900/40 transition-all">Certificates</a>
+          <a href="#education" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-amber-400 hover:bg-slate-900/40 transition-all">Education</a>
+          <a href="#contact" class="nav-link px-3 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-amber-400 hover:bg-slate-900/40 transition-all">Contact</a>
+        </nav>
+
+        <!-- Right Controls (Theme Toggle & CV Download) -->
+        <div class="hidden sm:flex items-center space-x-3">
+          <button id="theme-toggle" class="p-2.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-300 border border-slate-800 transition-all" aria-label="Toggle Color Theme" title="Toggle Dark/Light Mode">
+            <i data-lucide="sun" class="w-4 h-4 text-amber-400 theme-sun-icon"></i>
+            <i data-lucide="moon" class="w-4 h-4 text-cyan-400 theme-moon-icon" style="display:none;"></i>
+          </button>
+
+          <a href="Samir_Jana_Resume.pdf" download="Samir_Jana_Resume.pdf" target="_blank" class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center space-x-2 shadow-lg shadow-amber-500/20 transition-all transform hover:-translate-y-0.5">
+            <i data-lucide="file-text" class="w-4 h-4"></i>
+            <span>Download CV</span>
+          </a>
+        </div>
+
+        <!-- Mobile Menu Trigger -->
+        <div class="flex items-center space-x-2 lg:hidden">
+          <button id="theme-toggle-mobile" class="p-2 rounded-xl bg-slate-900/80 text-slate-300 border border-slate-800">
+            <i data-lucide="sun" class="w-4 h-4 text-amber-400 theme-sun-icon"></i>
+            <i data-lucide="moon" class="w-4 h-4 text-cyan-400 theme-moon-icon" style="display:none;"></i>
+          </button>
+          
+          <button id="mobile-menu-btn" class="p-2.5 rounded-xl bg-slate-900/80 text-slate-200 border border-slate-800 hover:text-amber-400">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden flex justify-end">
+    <div class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm -z-10" onclick="document.getElementById('mobile-drawer').classList.add('translate-x-full')"></div>
+
+    <div class="w-4/5 max-w-sm bg-slate-900 h-full p-6 flex flex-col justify-between border-l border-slate-800 shadow-2xl overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+          <div class="flex items-center space-x-2">
+            <div class="w-8 h-8 rounded-lg bg-amber-500 text-slate-950 font-black flex items-center justify-center text-sm font-heading">SJ</div>
+            <span class="font-heading font-bold text-white">Samir Jana</span>
+          </div>
+          <button id="close-drawer-btn" class="p-2 rounded-lg text-slate-400 hover:text-white">
+            <i data-lucide="x" class="w-5 h-5"></i>
+          </button>
+        </div>
+
+        <nav class="mt-6 flex flex-col space-y-1">
+          <a href="#home" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-300 hover:text-amber-400 hover:bg-slate-800">Home</a>
+          <a href="#about" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-300 hover:text-amber-400 hover:bg-slate-800">About</a>
+          <a href="#skills" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-300 hover:text-amber-400 hover:bg-slate-800">Skills</a>
+          <a href="#projects" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-300 hover:text-amber-400 hover:bg-slate-800">Projects</a>
+          <a href="#certificates" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-300 hover:text-amber-400 hover:bg-slate-800">Certificates</a>
+          <a href="#education" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-300 hover:text-amber-400 hover:bg-slate-800">Education</a>
+          <a href="#contact" class="mobile-nav-link px-4 py-3 rounded-xl text-base font-medium text-slate-300 hover:text-amber-400 hover:bg-slate-800">Contact</a>
+        </nav>
+      </div>
+
+      <div class="pt-6 border-t border-slate-800">
+        <a href="Samir_Jana_Resume.pdf" download="Samir_Jana_Resume.pdf" target="_blank" class="w-full py-3 rounded-xl bg-amber-500 text-slate-950 font-bold text-sm flex items-center justify-center space-x-2">
+          <i data-lucide="file-text" class="w-4 h-4"></i>
+          <span>Download CV</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main class="flex-grow">
+
+    <!-- ==========================================================================
+         HERO SECTION
+         ========================================================================== -->
+    <section id="home" class="relative min-h-[92vh] flex items-center justify-center overflow-hidden py-16 sm:py-24">
+      <canvas id="particles-canvas" class="absolute inset-0 w-full h-full pointer-events-auto z-0 opacity-60"></canvas>
+
+      <div class="absolute top-1/3 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          
+          <!-- Left Hero Content -->
+          <div class="lg:col-span-7 text-center lg:text-left space-y-6">
+            
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-slate-800 shadow-lg">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-ping"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-400 -ml-5"></span>
+              <span class="text-xs font-mono font-semibold tracking-wider uppercase text-amber-400">HELLO, I'M</span>
+            </div>
+
+            <h1 class="text-4xl sm:text-6xl xl:text-7xl font-heading font-black tracking-tight text-white leading-tight">
+              Samir Jana
+            </h1>
+
+            <p class="text-xl sm:text-2xl lg:text-3xl font-heading font-bold text-slate-200">
+              Computer Science Engineer &amp; <span class="highlight-gold">Developer</span>
+            </p>
+
+            <div class="text-sm sm:text-base font-mono text-slate-300 min-h-[30px] flex items-center justify-center lg:justify-start space-x-1">
+              <span class="text-amber-400">&gt;</span>
+              <span>Specializing in&nbsp;</span>
+              <span id="typewriter-text" class="gradient-text-gold font-bold"></span>
+              <span class="w-1 h-5 bg-amber-400 inline-block animate-pulse"></span>
+            </div>
+
+            <p class="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              Computer Science and Engineering student at Lovely Professional University (CGPA 8.69) turning curiosity into practical technology — from modern web systems to embedded hardware solutions.
+            </p>
+
+            <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+              <a href="#projects" class="px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm flex items-center space-x-2 shadow-lg shadow-amber-500/20 transition-all transform hover:-translate-y-0.5">
+                <span>View My Work</span>
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+              </a>
+
+              <a href="Samir_Jana_Resume.pdf" download="Samir_Jana_Resume.pdf" target="_blank" class="px-6 py-3.5 rounded-xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 border border-slate-800 hover:border-amber-500/50 font-bold text-sm flex items-center space-x-2 transition-all">
+                <i data-lucide="download" class="w-4 h-4 text-amber-400"></i>
+                <span>Download CV</span>
+              </a>
+
+              <a href="#contact" class="px-5 py-3.5 rounded-xl bg-slate-900/50 hover:bg-slate-800 text-slate-400 hover:text-white text-sm font-medium transition-all">
+                <span>Let's Connect</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Right Hero Visual -->
+          <div class="lg:col-span-5 flex flex-col items-center justify-center">
+            <div class="relative w-64 h-64 sm:w-80 sm:h-80 group">
+              <div class="hero-glow-halo" aria-hidden="true"></div>
+              
+              <div class="w-full h-full rounded-full overflow-hidden bg-slate-900 border-4 border-slate-800 shadow-2xl relative z-10 flex items-center justify-center">
+                <!-- Sleek SVG Avatar Placeholder -->
+                <svg id="hero-avatar-img" class="w-full h-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="400" height="400" fill="#0f172a"/>
+                  <circle cx="200" cy="180" r="90" stroke="#f59e0b" stroke-width="3" stroke-dasharray="6 6" opacity="0.6"/>
+                  <circle cx="200" cy="150" r="50" fill="#1e293b" stroke="#f59e0b" stroke-width="3"/>
+                  <path d="M150 140 C150 100, 250 100, 250 140 C250 120, 220 110, 200 110 C180 110, 150 120, 150 140 Z" fill="#f59e0b"/>
+                  <rect x="175" y="145" width="50" height="10" rx="5" fill="#38bdf8"/>
+                  <path d="M120 290 C120 220, 160 210, 200 210 C240 210, 280 220, 280 290 Z" fill="#1e293b" stroke="#f59e0b" stroke-width="3"/>
+                  <polygon points="200,225 215,260 185,260" fill="none" stroke="#f59e0b" stroke-width="2"/>
+                  <rect x="130" y="325" width="140" height="36" rx="18" fill="rgba(15, 23, 42, 0.9)" stroke="#f59e0b" stroke-width="1.5"/>
+                  <text x="200" y="348" fill="#f59e0b" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="bold" text-anchor="middle" letter-spacing="2">SAMIR JANA</text>
+                </svg>
+              </div>
+
+              <!-- Quick Photo Customizer Badge -->
+              <button onclick="openPhotoModalDirect()" class="absolute -bottom-2 right-4 z-20 px-3.5 py-1.5 rounded-full bg-slate-900/95 text-amber-400 text-xs font-semibold border border-amber-500/40 shadow-xl flex items-center space-x-1.5 hover:bg-amber-500 hover:text-slate-950 transition-all transform hover:scale-105" title="Click to preview your photo">
+                <i data-lucide="camera" class="w-3.5 h-3.5"></i>
+                <span>Preview Photo</span>
+              </button>
+
+              <div class="absolute -top-3 -left-3 z-20 px-3 py-1.5 rounded-full bg-slate-900/95 border border-slate-800 shadow-lg flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span class="text-[11px] font-mono text-slate-300">Open to Internships</span>
+              </div>
+            </div>
+
+            <p class="text-xs text-slate-500 mt-6 font-mono text-center">
+              📍 Phagwara, Punjab · Contai, West Bengal
+            </p>
+          </div>
+
+        </div>
+
+        <!-- Hero Bottom Bar: Socials + 4 Stat Cards -->
+        <div class="mt-16 pt-8 border-t border-slate-800/80 grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-4 flex flex-wrap items-center justify-center lg:justify-start gap-4">
+            <a href="#about" class="inline-flex items-center space-x-2 text-xs font-mono text-slate-400 hover:text-amber-400 transition-colors">
+              <i data-lucide="arrow-down" class="w-4 h-4 animate-bounce text-amber-400"></i>
+              <span>Scroll Down</span>
+            </a>
+
+            <div class="h-4 w-px bg-slate-800 hidden sm:block"></div>
+
+            <div class="flex items-center space-x-2">
+              <a href="https://www.linkedin.com/in/samir-jana-3a5213398/" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-slate-300 border border-slate-800 transition-all" title="LinkedIn Profile">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                </svg>
+              </a>
+              <a href="https://github.com/janasamir2044-arch" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-slate-300 border border-slate-800 transition-all" title="GitHub Profile">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+              </a>
+              <a href="mailto:samirjana1706@gmail.com" class="p-2.5 rounded-xl bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-slate-300 border border-slate-800 transition-all" title="Send Email">
+                <i data-lucide="mail" class="w-4 h-4"></i>
+              </a>
+              <a href="tel:+918388055379" class="p-2.5 rounded-xl bg-slate-900/80 hover:bg-amber-500 hover:text-slate-950 text-slate-300 border border-slate-800 transition-all" title="Call Direct">
+                <i data-lucide="phone" class="w-4 h-4"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right 4 Stat Cards -->
+          <div class="lg:col-span-8">
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+              <div class="stat-card p-4 rounded-2xl glass-panel hover:border-amber-500/40 transition-all">
+                <div class="flex items-center space-x-2.5 mb-1.5">
+                  <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400"><i data-lucide="graduation-cap" class="w-4 h-4"></i></div>
+                  <span class="text-2xl font-heading font-bold text-white">8.69</span>
+                </div>
+                <p class="text-[11px] font-medium text-slate-400">LPU Academic CGPA</p>
+              </div>
+
+              <div class="stat-card p-4 rounded-2xl glass-panel hover:border-amber-500/40 transition-all">
+                <div class="flex items-center space-x-2.5 mb-1.5">
+                  <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400"><i data-lucide="code-2" class="w-4 h-4"></i></div>
+                  <span class="text-2xl font-heading font-bold text-white">50+</span>
+                </div>
+                <p class="text-[11px] font-medium text-slate-400">Problems Solved</p>
+              </div>
+
+              <div class="stat-card p-4 rounded-2xl glass-panel hover:border-amber-500/40 transition-all">
+                <div class="flex items-center space-x-2.5 mb-1.5">
+                  <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400"><i data-lucide="award" class="w-4 h-4"></i></div>
+                  <span class="text-2xl font-heading font-bold text-white">4+</span>
+                </div>
+                <p class="text-[11px] font-medium text-slate-400">Certifications</p>
+              </div>
+
+              <div class="stat-card p-4 rounded-2xl glass-panel hover:border-amber-500/40 transition-all">
+                <div class="flex items-center space-x-2.5 mb-1.5">
+                  <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400"><i data-lucide="percent" class="w-4 h-4"></i></div>
+                  <span class="text-2xl font-heading font-bold text-white">88.0%</span>
+                </div>
+                <p class="text-[11px] font-medium text-slate-400">Class XII Merit</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 01: ABOUT ME
+         ========================================================================== -->
+    <section id="about" class="py-24 bg-slate-900/30 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-16 space-y-3">
+          <div class="section-eyebrow"><span>01 / ABOUT ME</span></div>
+          <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white">Learning by making things real.</h2>
+          <p class="text-slate-400 text-sm sm:text-base">Computer Science &amp; Engineering student turning curiosity into practical technology — one problem, interface, and embedded system at a time.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-7 glass-panel rounded-3xl p-6 sm:p-8 space-y-6">
+            <h3 class="text-xl font-heading font-bold text-white">Passionate Engineer &amp; Developer</h3>
+            
+            <p class="text-base text-slate-300 leading-relaxed">
+              I'm <strong>Samir Jana</strong>, currently pursuing my Bachelor of Technology in Computer Science and Engineering at <strong>Lovely Professional University (LPU)</strong> with an <strong>8.69 CGPA</strong>. My journey in technology is rooted in turning logical curiosity into tangible, high-impact systems — from responsive full-stack web applications to smart hardware-software embedded prototypes.
+            </p>
+            
+            <div class="p-4 rounded-xl bg-slate-900/60 border border-slate-800 border-l-4 border-l-amber-500">
+              <h4 class="text-xs font-mono font-semibold uppercase tracking-wider text-amber-400 mb-1">Guiding Principle</h4>
+              <p class="text-sm text-slate-300 italic">I believe in continuous learning, structured engineering, and building solutions that bridge software logic with practical real-world utility.</p>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800">
+              <h4 class="text-xs font-mono uppercase tracking-wider text-amber-400 font-semibold mb-3">Core Pillars of Focus</h4>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-900/40 border border-slate-800/80">
+                  <div class="w-2.5 h-2.5 rounded-full bg-amber-400 flex-shrink-0 mt-1.5 shadow-[0_0_8px_rgba(245,158,11,0.8)]"></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-0.5">Software &amp; Web Dev</h4>
+                    <p class="text-xs text-slate-400">JavaScript, HTML5/CSS3, PostgreSQL, MongoDB &amp; UI/UX with Figma.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-900/40 border border-slate-800/80">
+                  <div class="w-2.5 h-2.5 rounded-full bg-amber-400 flex-shrink-0 mt-1.5 shadow-[0_0_8px_rgba(245,158,11,0.8)]"></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-0.5">Embedded &amp; IoT Systems</h4>
+                    <p class="text-xs text-slate-400">Arduino UNO, ultrasonic sensors, firmware in Embedded C/C++.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-900/40 border border-slate-800/80">
+                  <div class="w-2.5 h-2.5 rounded-full bg-amber-400 flex-shrink-0 mt-1.5 shadow-[0_0_8px_rgba(245,158,11,0.8)]"></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-0.5">Problem Solving &amp; DSA</h4>
+                    <p class="text-xs text-slate-400">50+ algorithmic problems solved with clean step-by-step logic.</p>
+                  </div>
+                </div>
+
+                <div class="flex items-start space-x-3 p-3 rounded-xl bg-slate-900/40 border border-slate-800/80">
+                  <div class="w-2.5 h-2.5 rounded-full bg-amber-400 flex-shrink-0 mt-1.5 shadow-[0_0_8px_rgba(245,158,11,0.8)]"></div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white mb-0.5">Continuous Certification</h4>
+                    <p class="text-xs text-slate-400">Certified by Infosys Springboard and Saylor Academy.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Sidebar -->
+          <div class="lg:col-span-5 space-y-4">
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 space-y-4">
+              <h3 class="text-lg font-heading font-bold text-white mb-2">Quick Details</h3>
+
+              <ul class="space-y-3 text-xs sm:text-sm">
+                <li class="flex items-center justify-between pb-2 border-b border-slate-800/80">
+                  <span class="text-slate-400">Degree</span>
+                  <span class="font-semibold text-white">B.Tech Computer Science</span>
+                </li>
+                <li class="flex items-center justify-between pb-2 border-b border-slate-800/80">
+                  <span class="text-slate-400">University</span>
+                  <span class="font-semibold text-white">Lovely Professional University</span>
+                </li>
+                <li class="flex items-center justify-between pb-2 border-b border-slate-800/80">
+                  <span class="text-slate-400">Location</span>
+                  <span class="font-semibold text-white">Phagwara, Punjab · West Bengal</span>
+                </li>
+                <li class="flex items-center justify-between pb-2 border-b border-slate-800/80">
+                  <span class="text-slate-400">Status</span>
+                  <span class="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 font-mono text-xs font-semibold">Open to Internships</span>
+                </li>
+                
+                <li class="flex items-center justify-between pb-2 border-b border-slate-800/80">
+                  <span class="text-slate-400">Email</span>
+                  <button type="button" class="inline-flex items-center space-x-1.5 text-amber-400 hover:text-amber-300 font-mono text-xs" onclick="copyText('samirjana1706@gmail.com')">
+                    <span>samirjana1706@gmail.com</span>
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  </button>
+                </li>
+
+                <li class="flex items-center justify-between">
+                  <span class="text-slate-400">Phone</span>
+                  <button type="button" class="inline-flex items-center space-x-1.5 text-amber-400 hover:text-amber-300 font-mono text-xs" onclick="copyText('+918388055379')">
+                    <span>+91 8388055379</span>
+                    <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                  </button>
+                </li>
+              </ul>
+
+              <div class="pt-4">
+                <a href="#contact" class="w-full py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center justify-center space-x-2 transition-all">
+                  <span>Get In Touch</span>
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 02: SKILLS & TOOLKIT
+         ========================================================================== -->
+    <section id="skills" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-12 space-y-3">
+          <div class="section-eyebrow"><span>02 / TOOLKIT &amp; STACK</span></div>
+          <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white">A growing technical range.</h2>
+          <p class="text-slate-400 text-sm sm:text-base">The languages, databases, cloud tools, and hardware platforms I use to solve problems and ship working solutions.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
+          
+          <!-- Skill 1: JavaScript -->
+          <div class="skill-card p-5 rounded-2xl glass-panel hover:border-amber-500/50 transition-all">
+            <div class="flex items-start justify-between mb-3">
+              <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400"><i data-lucide="code" class="w-5 h-5"></i></div>
+              <span class="text-xs font-mono font-bold text-slate-500">01</span>
+            </div>
+            <span class="text-[11px] uppercase font-mono tracking-wider text-amber-400 block mb-1">Language</span>
+            <h3 class="text-base font-bold text-white mb-1.5">JavaScript</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">ES6+, DOM manipulation, async programming &amp; dynamic UI interactivity.</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden"><div class="bg-gradient-to-r from-amber-500 to-yellow-400 h-1.5 rounded-full" style="width: 85%"></div></div>
+          </div>
+
+          <!-- Skill 2: C / C++ -->
+          <div class="skill-card p-5 rounded-2xl glass-panel hover:border-amber-500/50 transition-all">
+            <div class="flex items-start justify-between mb-3">
+              <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400"><i data-lucide="cpu" class="w-5 h-5"></i></div>
+              <span class="text-xs font-mono font-bold text-slate-500">02</span>
+            </div>
+            <span class="text-[11px] uppercase font-mono tracking-wider text-amber-400 block mb-1">Language &amp; DSA</span>
+            <h3 class="text-base font-bold text-white mb-1.5">C / C++</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">OOPs, memory management, Data Structures, STL &amp; algorithmic logic.</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden"><div class="bg-gradient-to-r from-amber-500 to-yellow-400 h-1.5 rounded-full" style="width: 88%"></div></div>
+          </div>
+
+          <!-- Skill 3: Python -->
+          <div class="skill-card p-5 rounded-2xl glass-panel hover:border-amber-500/50 transition-all">
+            <div class="flex items-start justify-between mb-3">
+              <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400"><i data-lucide="terminal" class="w-5 h-5"></i></div>
+              <span class="text-xs font-mono font-bold text-slate-500">03</span>
+            </div>
+            <span class="text-[11px] uppercase font-mono tracking-wider text-amber-400 block mb-1">Language</span>
+            <h3 class="text-base font-bold text-white mb-1.5">Python</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">Logic building, scripting, algorithms &amp; data handling (Certified by Infosys).</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden"><div class="bg-gradient-to-r from-amber-500 to-yellow-400 h-1.5 rounded-full" style="width: 86%"></div></div>
+          </div>
+
+          <!-- Skill 4: HTML5 & CSS3 -->
+          <div class="skill-card p-5 rounded-2xl glass-panel hover:border-amber-500/50 transition-all">
+            <div class="flex items-start justify-between mb-3">
+              <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400"><i data-lucide="layout" class="w-5 h-5"></i></div>
+              <span class="text-xs font-mono font-bold text-slate-500">04</span>
+            </div>
+            <span class="text-[11px] uppercase font-mono tracking-wider text-amber-400 block mb-1">Frontend</span>
+            <h3 class="text-base font-bold text-white mb-1.5">HTML5 &amp; CSS3</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">Semantic markup, Flexbox, Grid, responsive design &amp; modern styling.</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden"><div class="bg-gradient-to-r from-amber-500 to-yellow-400 h-1.5 rounded-full" style="width: 92%"></div></div>
+          </div>
+
+          <!-- Skill 5: PostgreSQL -->
+          <div class="skill-card p-5 rounded-2xl glass-panel hover:border-amber-500/50 transition-all">
+            <div class="flex items-start justify-between mb-3">
+              <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400"><i data-lucide="database" class="w-5 h-5"></i></div>
+              <span class="text-xs font-mono font-bold text-slate-500">05</span>
+            </div>
+            <span class="text-[11px] uppercase font-mono tracking-wider text-amber-400 block mb-1">Database</span>
+            <h3 class="text-base font-bold text-white mb-1.5">PostgreSQL</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">Relational database schema design, SQL queries &amp; indexing.</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden"><div class="bg-gradient-to-r from-amber-500 to-yellow-400 h-1.5 rounded-full" style="width: 84%"></div></div>
+          </div>
+
+          <!-- Skill 6: MongoDB -->
+          <div class="skill-card p-5 rounded-2xl glass-panel hover:border-amber-500/50 transition-all">
+            <div class="flex items-start justify-between mb-3">
+              <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400"><i data-lucide="hard-drive" class="w-5 h-5"></i></div>
+              <span class="text-xs font-mono font-bold text-slate-500">06</span>
+            </div>
+            <span class="text-[11px] uppercase font-mono tracking-wider text-amber-400 block mb-1">NoSQL Database</span>
+            <h3 class="text-base font-bold text-white mb-1.5">MongoDB</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">Document collections, JSON data models &amp; CRUD operations.</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden"><div class="bg-gradient-to-r from-amber-500 to-yellow-400 h-1.5 rounded-full" style="width: 80%"></div></div>
+          </div>
+
+          <!-- Skill 7: Arduino & Embedded -->
+          <div class="skill-card p-5 rounded-2xl glass-panel hover:border-amber-500/50 transition-all">
+            <div class="flex items-start justify-between mb-3">
+              <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400"><i data-lucide="radio" class="w-5 h-5"></i></div>
+              <span class="text-xs font-mono font-bold text-slate-500">07</span>
+            </div>
+            <span class="text-[11px] uppercase font-mono tracking-wider text-amber-400 block mb-1">Hardware &amp; IoT</span>
+            <h3 class="text-base font-bold text-white mb-1.5">Arduino UNO &amp; Embedded C</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">Microcontrollers, ultrasonic sensors, breadboard circuits &amp; serial comms.</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden"><div class="bg-gradient-to-r from-amber-500 to-yellow-400 h-1.5 rounded-full" style="width: 86%"></div></div>
+          </div>
+
+          <!-- Skill 8: Git & GitHub -->
+          <div class="skill-card p-5 rounded-2xl glass-panel hover:border-amber-500/50 transition-all">
+            <div class="flex items-start justify-between mb-3">
+              <div class="p-3 rounded-xl bg-amber-500/10 text-amber-400"><i data-lucide="git-branch" class="w-5 h-5"></i></div>
+              <span class="text-xs font-mono font-bold text-slate-500">08</span>
+            </div>
+            <span class="text-[11px] uppercase font-mono tracking-wider text-amber-400 block mb-1">Version Control</span>
+            <h3 class="text-base font-bold text-white mb-1.5">Git &amp; GitHub</h3>
+            <p class="text-xs text-slate-400 leading-relaxed mb-3">Branching, commits, pull requests &amp; repository management.</p>
+            <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden"><div class="bg-gradient-to-r from-amber-500 to-yellow-400 h-1.5 rounded-full" style="width: 90%"></div></div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 03: FEATURED PROJECT
+         ========================================================================== -->
+    <section id="projects" class="py-24 bg-slate-900/30 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-16 space-y-3">
+          <div class="section-eyebrow"><span>03 / FEATURED PROJECT</span></div>
+          <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white">Where code meets a circuit.</h2>
+          <p class="text-slate-400 text-sm sm:text-base">Featured ECE &amp; software projects built as functional working prototypes shaped around real-world utility.</p>
+        </div>
+
+        <article class="glass-panel rounded-3xl p-6 sm:p-10 border border-slate-700/60 shadow-2xl">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-5 flex flex-col items-center justify-center p-6 rounded-2xl bg-slate-900/80 border border-slate-800 relative overflow-hidden">
+              <div class="circuit-orbit-container my-4">
+                <div class="circuit-ring-outer"></div>
+                <div class="circuit-ring-inner"></div>
+                <div class="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shadow-lg shadow-amber-500/10">
+                  <i data-lucide="radio" class="w-8 h-8"></i>
+                </div>
+              </div>
+
+              <div class="flex items-center space-x-2 px-3 py-1.5 rounded-full bg-slate-800/80 border border-slate-700 text-xs font-mono text-emerald-400 mt-2">
+                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                <span>Real-time Ultrasonic Telemetry</span>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2 w-full mt-6 text-center text-xs font-mono">
+                <div class="p-2 rounded-lg bg-slate-800/50 border border-slate-700/60">
+                  <span class="text-slate-400 block text-[10px]">TRANSDUCER</span>
+                  <span class="text-amber-400 font-bold">HC-SR04</span>
+                </div>
+                <div class="p-2 rounded-lg bg-slate-800/50 border border-slate-700/60">
+                  <span class="text-slate-400 block text-[10px]">CONTROLLER</span>
+                  <span class="text-cyan-400 font-bold">Arduino UNO</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-4">
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-mono font-semibold">ECE Project · Embedded Systems</span>
+                <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-mono font-semibold">Working Prototype</span>
+              </div>
+
+              <h3 class="text-2xl sm:text-3xl font-heading font-extrabold text-white">Smart Water Monitoring System</h3>
+
+              <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
+                Designed and developed a smart water monitoring system using an ultrasonic sensor to measure water level in real time. Interfaced with an Arduino microcontroller to calculate distance, detect thresholds, and trigger status indications.
+              </p>
+
+              <div class="space-y-2.5 pt-2">
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-slate-300">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
+                  <span>Real-time water level calculation using ultrasonic wave propagation speed.</span>
+                </div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-slate-300">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
+                  <span>Threshold-based alert logic triggering timely high and low capacity warnings.</span>
+                </div>
+                <div class="flex items-start space-x-2.5 text-xs sm:text-sm text-slate-300">
+                  <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400 flex-shrink-0 mt-0.5"></i>
+                  <span>Complete physical breadboard prototype assembled with calibrated jumper circuitry.</span>
+                </div>
+              </div>
+
+              <div class="flex flex-wrap gap-2 pt-3">
+                <span class="px-3 py-1 rounded-lg bg-slate-800/80 text-slate-200 border border-slate-700 text-xs font-medium">Arduino UNO</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/80 text-slate-200 border border-slate-700 text-xs font-medium">HC-SR04 Ultrasonic Sensor</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/80 text-slate-200 border border-slate-700 text-xs font-medium">Embedded C/C++</span>
+                <span class="px-3 py-1 rounded-lg bg-slate-800/80 text-slate-200 border border-slate-700 text-xs font-medium">Breadboard Electronics</span>
+              </div>
+
+              <div class="pt-4 flex items-center space-x-4">
+                <button onclick="openArchitectureModalDirect()" class="px-5 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs flex items-center space-x-2 shadow-lg shadow-amber-500/20 transition-all transform hover:-translate-y-0.5">
+                  <span>View System Architecture &amp; Details</span>
+                  <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 04: CERTIFICATES & LEARNING LOG
+         ========================================================================== -->
+    <section id="certificates" class="py-24 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-16 space-y-3">
+          <div class="section-eyebrow"><span>04 / LEARNING LOG</span></div>
+          <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white">Proof of steady progress.</h2>
+          <p class="text-slate-400 text-sm sm:text-base">Industry-recognized certifications and coursework completed with distinction.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Cert 1 -->
+          <div class="cert-card p-6 rounded-2xl glass-panel hover:border-amber-500/50 transition-all">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-xl font-heading font-bold text-slate-500">01</span>
+              <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400"><i data-lucide="terminal" class="w-5 h-5"></i></div>
+            </div>
+            <span class="text-xs font-mono text-amber-400 block mb-1 font-semibold">Infosys Springboard</span>
+            <h3 class="text-base font-bold text-white mb-2 leading-snug">Introduction to Python</h3>
+            <p class="text-xs text-slate-400 mb-4 leading-relaxed">Core Programming Logic, Data Structures, Control Flow &amp; Problem Solving.</p>
+            <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>Verified Certificate</span>
+              <span class="text-emerald-400 flex items-center space-x-1"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i><span>Verified</span></span>
+            </div>
+          </div>
+
+          <!-- Cert 2 -->
+          <div class="cert-card p-6 rounded-2xl glass-panel hover:border-amber-500/50 transition-all">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-xl font-heading font-bold text-slate-500">02</span>
+              <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400"><i data-lucide="server" class="w-5 h-5"></i></div>
+            </div>
+            <span class="text-xs font-mono text-amber-400 block mb-1 font-semibold">Infosys Springboard</span>
+            <h3 class="text-base font-bold text-white mb-2 leading-snug">Big Data – 201</h3>
+            <p class="text-xs text-slate-400 mb-4 leading-relaxed">Big Data Ecosystem, Distributed Architecture &amp; Large-Scale Processing.</p>
+            <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>Verified Certificate</span>
+              <span class="text-emerald-400 flex items-center space-x-1"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i><span>Verified</span></span>
+            </div>
+          </div>
+
+          <!-- Cert 3 -->
+          <div class="cert-card p-6 rounded-2xl glass-panel hover:border-amber-500/50 transition-all">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-xl font-heading font-bold text-slate-500">03</span>
+              <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400"><i data-lucide="cloud" class="w-5 h-5"></i></div>
+            </div>
+            <span class="text-xs font-mono text-amber-400 block mb-1 font-semibold">Infosys Springboard</span>
+            <h3 class="text-base font-bold text-white mb-2 leading-snug">Introduction to Azure DevOps</h3>
+            <p class="text-xs text-slate-400 mb-4 leading-relaxed">CI/CD Pipelines, Agile Boards, Cloud Deployment &amp; Lifecycle Management.</p>
+            <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>Verified Certificate</span>
+              <span class="text-emerald-400 flex items-center space-x-1"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i><span>Verified</span></span>
+            </div>
+          </div>
+
+          <!-- Cert 4 -->
+          <div class="cert-card p-6 rounded-2xl glass-panel hover:border-amber-500/50 transition-all">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-xl font-heading font-bold text-slate-500">04</span>
+              <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400"><i data-lucide="award" class="w-5 h-5"></i></div>
+            </div>
+            <span class="text-xs font-mono text-amber-400 block mb-1 font-semibold">Saylor Academy</span>
+            <h3 class="text-base font-bold text-white mb-2 leading-snug">CS102: Computer Science II</h3>
+            <p class="text-xs text-slate-400 mb-4 leading-relaxed">Advanced Object-Oriented Programming, Data Structures &amp; Algorithmic Analysis.</p>
+            <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-mono text-slate-500">
+              <span>Verified Certificate</span>
+              <span class="text-emerald-400 flex items-center space-x-1"><i data-lucide="shield-check" class="w-3.5 h-3.5"></i><span>Verified</span></span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 05: EDUCATION
+         ========================================================================== -->
+    <section id="education" class="py-24 bg-slate-900/30 relative">
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-16 space-y-3">
+          <div class="section-eyebrow"><span>05 / EDUCATION</span></div>
+          <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white">The foundation underneath.</h2>
+          <p class="text-slate-400 text-sm sm:text-base">An academic path grounded in computer science, software engineering, and continuous learning.</p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- Timeline Item 1: LPU -->
+          <div class="relative pl-8 sm:pl-10 pb-8 border-l-2 border-slate-800 group">
+            <div class="absolute -left-[8px] top-1.5 timeline-marker-dot active"></div>
+            <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-amber-500/40 transition-all">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="px-3 py-1 text-xs font-mono font-semibold rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                  Aug 2025 — Present · Current Degree
+                </span>
+                <span class="px-2.5 py-0.5 text-xs font-mono font-bold rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                  CGPA: 8.69
+                </span>
+              </div>
+              <h3 class="text-lg font-bold text-white">Lovely Professional University</h3>
+              <p class="text-sm font-semibold text-slate-300 mb-1">Bachelor of Technology — Computer Science and Engineering</p>
+              <div class="flex items-center space-x-1.5 text-xs text-slate-400 mb-3">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>Phagwara, Punjab</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Focusing on Core Computer Science, Data Structures &amp; Algorithms, Object-Oriented Programming, Database Management Systems, and Embedded Hardware Prototyping.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 2: Contai -->
+          <div class="relative pl-8 sm:pl-10 pb-8 border-l-2 border-slate-800 group">
+            <div class="absolute -left-[8px] top-1.5 timeline-marker-dot"></div>
+            <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-amber-500/40 transition-all">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="px-3 py-1 text-xs font-mono font-semibold rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+                  2022 — 2024
+                </span>
+                <span class="px-2.5 py-0.5 text-xs font-mono font-bold rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                  Percentage: 88.0%
+                </span>
+              </div>
+              <h3 class="text-lg font-bold text-white">Contai Model Institution</h3>
+              <p class="text-sm font-semibold text-slate-300 mb-1">Higher Secondary Education (Class XII - Science)</p>
+              <div class="flex items-center space-x-1.5 text-xs text-slate-400 mb-3">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>Contai, West Bengal</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Completed higher secondary curriculum with distinction in Science, Mathematics, Physics, and Computer Science foundations.</p>
+            </div>
+          </div>
+
+          <!-- Timeline Item 3: Balisai -->
+          <div class="relative pl-8 sm:pl-10 pb-4 group">
+            <div class="absolute -left-[8px] top-1.5 timeline-marker-dot"></div>
+            <div class="glass-panel p-6 rounded-2xl border border-slate-800 hover:border-amber-500/40 transition-all">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                <span class="px-3 py-1 text-xs font-mono font-semibold rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+                  2021 — 2022
+                </span>
+                <span class="px-2.5 py-0.5 text-xs font-mono font-bold rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                  Percentage: 87.0%
+                </span>
+              </div>
+              <h3 class="text-lg font-bold text-white">Tatkapur Shyama Vidyabhaban</h3>
+              <p class="text-sm font-semibold text-slate-300 mb-1">Secondary Education (Class X)</p>
+              <div class="flex items-center space-x-1.5 text-xs text-slate-400 mb-3">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400"></i>
+                <span>Balisai, West Bengal</span>
+              </div>
+              <p class="text-xs sm:text-sm text-slate-400 leading-relaxed">Graduated secondary education with top honors across general sciences and mathematics.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         SECTION 06: OPEN CHANNEL (CONTACT)
+         ========================================================================== -->
+    <section id="contact" class="py-24 bg-slate-900/30 relative">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-16 space-y-3">
+          <div class="section-eyebrow"><span>07 / OPEN CHANNEL</span></div>
+          <h2 class="text-3xl sm:text-4xl font-heading font-extrabold text-white">Have a problem worth solving?</h2>
+          <p class="text-slate-400 text-sm sm:text-base">I'm always interested in thoughtful conversations about software engineering, embedded systems, and internship opportunities.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          
+          <div class="lg:col-span-5 space-y-4">
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 space-y-4">
+              <h3 class="text-lg font-heading font-bold text-white mb-2">Direct Channels</h3>
+              
+              <div class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <div class="flex items-center space-x-3">
+                  <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400"><i data-lucide="mail" class="w-4 h-4"></i></div>
+                  <div>
+                    <span class="text-[10px] uppercase font-mono text-slate-400 block">Email</span>
+                    <a href="mailto:samirjana1706@gmail.com" class="text-xs sm:text-sm font-semibold text-slate-200 hover:text-amber-400">samirjana1706@gmail.com</a>
+                  </div>
+                </div>
+                <button type="button" class="p-2 rounded-xl bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-300 transition-all" onclick="copyText('samirjana1706@gmail.com')" title="Copy Email">
+                  <i data-lucide="copy" class="w-4 h-4"></i>
+                </button>
+              </div>
+
+              <div class="flex items-center justify-between p-3.5 rounded-2xl bg-slate-900/80 border border-slate-800">
+                <div class="flex items-center space-x-3">
+                  <div class="p-2.5 rounded-xl bg-amber-500/10 text-amber-400"><i data-lucide="phone" class="w-4 h-4"></i></div>
+                  <div>
+                    <span class="text-[10px] uppercase font-mono text-slate-400 block">Phone</span>
+                    <a href="tel:+918388055379" class="text-xs sm:text-sm font-semibold text-slate-200 hover:text-amber-400">+91 8388055379</a>
+                  </div>
+                </div>
+                <button type="button" class="p-2 rounded-xl bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-300 transition-all" onclick="copyText('+918388055379')" title="Copy Phone">
+                  <i data-lucide="copy" class="w-4 h-4"></i>
+                </button>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3 pt-2">
+                <a href="https://www.linkedin.com/in/samir-jana-3a5213398/" target="_blank" rel="noopener noreferrer" class="p-3 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 text-slate-300 hover:text-white flex items-center justify-center space-x-2 transition-all">
+                  <svg class="w-4 h-4 fill-amber-400" viewBox="0 0 24 24">
+                    <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+                  </svg>
+                  <span class="text-xs font-semibold">LinkedIn</span>
+                </a>
+
+                <a href="https://github.com/janasamir2044-arch" target="_blank" rel="noopener noreferrer" class="p-3 rounded-2xl bg-slate-900/80 border border-slate-800 hover:border-amber-500/40 text-slate-300 hover:text-white flex items-center justify-center space-x-2 transition-all">
+                  <svg class="w-4 h-4 fill-amber-400" viewBox="0 0 24 24">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                  </svg>
+                  <span class="text-xs font-semibold">GitHub</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message Form -->
+          <div class="lg:col-span-7">
+            <div class="glass-panel rounded-3xl p-6 sm:p-8">
+              <h3 class="text-xl font-heading font-bold text-white mb-6">Send Me a Message</h3>
+
+              <form id="contact-form" onsubmit="handleContactSubmit(event)" class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label class="block text-xs font-mono font-semibold text-slate-300 uppercase tracking-wider mb-2" for="contact-name">Your Name</label>
+                    <input type="text" id="contact-name" required placeholder="e.g. Alex Sharma" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors text-sm">
+                  </div>
+                  <div>
+                    <label class="block text-xs font-mono font-semibold text-slate-300 uppercase tracking-wider mb-2" for="contact-email">Email Address</label>
+                    <input type="email" id="contact-email" required placeholder="alex@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors text-sm">
+                  </div>
+                </div>
+
+                <div>
+                  <label class="block text-xs font-mono font-semibold text-slate-300 uppercase tracking-wider mb-2" for="contact-subject">Subject</label>
+                  <input type="text" id="contact-subject" placeholder="Internship Opportunity / Project Collaboration" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors text-sm">
+                </div>
+
+                <div>
+                  <label class="block text-xs font-mono font-semibold text-slate-300 uppercase tracking-wider mb-2" for="contact-message">Message</label>
+                  <textarea id="contact-message" rows="4" required placeholder="Hi Samir, I came across your portfolio and would like to discuss..." class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors text-sm resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 px-6 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm flex items-center justify-center space-x-2 shadow-lg shadow-amber-500/20 transition-all transform hover:-translate-y-0.5">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  <span>Send Message</span>
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-950 border-t border-slate-900 py-12 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 rounded-lg bg-amber-500 text-slate-950 font-bold font-heading flex items-center justify-center text-sm">SJ</div>
+          <span class="font-heading font-bold text-white text-base">Samir Jana</span>
+          <span class="text-xs text-slate-500">&copy; 2026 Samir Jana · Built with care &amp; precision.</span>
+        </div>
+
+        <div class="flex items-center space-x-2 text-xs font-mono text-amber-400 bg-slate-900 px-3 py-1.5 rounded-full border border-slate-800">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span id="live-time-display">--:--:-- (IST)</span>
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <a href="https://www.linkedin.com/in/samir-jana-3a5213398/" target="_blank" class="p-2 rounded-lg bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-400 transition-all" title="LinkedIn Profile">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/>
+            </svg>
+          </a>
+          <a href="https://github.com/janasamir2044-arch" target="_blank" class="p-2 rounded-lg bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-400 transition-all" title="GitHub Profile">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+          <a href="mailto:samirjana1706@gmail.com" class="p-2 rounded-lg bg-slate-900 hover:bg-amber-500 hover:text-slate-950 text-slate-400 transition-all"><i data-lucide="mail" class="w-4 h-4"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back-to-Top Button -->
+  <button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-6 left-6 z-40 p-3 rounded-full bg-slate-900/90 text-amber-400 border border-amber-500/30 shadow-2xl hover:bg-amber-500 hover:text-slate-950 transition-all opacity-0 pointer-events-none transform hover:scale-110" aria-label="Back to Top">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </button>
+
+  <!-- MODAL: ARCHITECTURE -->
+  <div id="architecture-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+    <div class="relative w-full max-w-2xl bg-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-8 max-h-[90vh] overflow-y-auto shadow-2xl">
+      <button onclick="document.getElementById('architecture-modal').classList.add('hidden')" class="absolute top-5 right-5 p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="space-y-6">
+        <div>
+          <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-mono font-semibold uppercase tracking-wider">Embedded IoT Architecture</span>
+          <h2 class="text-2xl sm:text-3xl font-heading font-black text-white mt-2">Smart Water Monitoring System</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-1">ECE Project · Breadboard Microcontroller Prototype</p>
+        </div>
+
+        <div class="p-4 rounded-2xl bg-slate-950/60 border border-slate-800 space-y-3">
+          <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400">System Architecture &amp; Dataflow</h4>
+          
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs font-mono font-bold text-amber-400 block mb-1">01. Ultrasonic Pulse</span>
+              <p class="text-xs text-slate-300">HC-SR04 transducer emits 40kHz acoustic pulses towards liquid level</p>
+            </div>
+
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs font-mono font-bold text-cyan-400 block mb-1">02. Arduino Logic</span>
+              <p class="text-xs text-slate-300">Measures echo duration to calculate real-time distance with millimeter precision</p>
+            </div>
+
+            <div class="p-3 rounded-xl bg-slate-900 border border-slate-800">
+              <span class="text-xs font-mono font-bold text-emerald-400 block mb-1">03. Status &amp; Alert</span>
+              <p class="text-xs text-slate-300">Threshold logic triggers status indications for low and high water levels</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-amber-400 mb-3">Key Technical Specifications</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+            <li class="flex items-start space-x-2">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+              <span><strong>Hardware:</strong> Arduino UNO, HC-SR04 Ultrasonic Sensor, Jumper Wires, Breadboard Electronics.</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+              <span><strong>Firmware:</strong> Embedded C/C++ with calibrated distance formula.</span>
+            </li>
+            <li class="flex items-start space-x-2">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5"></i>
+              <span><strong>Thresholds:</strong> Dynamic capacity warnings to prevent overflow and dry run hazards.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800 flex items-center justify-end space-x-3">
+          <a href="mailto:samirjana1706@gmail.com?subject=Inquiry regarding Smart Water Monitoring System" class="px-4 py-2.5 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs hover:bg-amber-400">
+            Discuss Hardware Specs
+          </a>
+          <button onclick="document.getElementById('architecture-modal').classList.add('hidden')" class="px-4 py-2.5 rounded-xl bg-slate-800 text-slate-300 text-xs font-semibold hover:text-white">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: CV / RESUME -->
+  <div id="cv-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+    <div class="relative w-full max-w-md bg-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-8 shadow-2xl">
+      <button onclick="document.getElementById('cv-modal').classList.add('hidden')" class="absolute top-5 right-5 p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      
+      <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-4">
+        <i data-lucide="file-text" class="w-6 h-6"></i>
+      </div>
+
+      <h3 class="text-xl font-heading font-bold text-white mb-2">Samir Jana — Curriculum Vitae</h3>
+      <p class="text-xs text-slate-400 leading-relaxed mb-4">
+        Computer Science &amp; Engineering student at Lovely Professional University (8.69 CGPA).
+      </p>
+
+      <div class="space-y-2 p-4 rounded-2xl bg-slate-950/70 border border-slate-800 text-xs text-slate-300 mb-6">
+        <div><strong>Education:</strong> B.Tech CSE (8.69 CGPA) · LPU</div>
+        <div><strong>Core Skills:</strong> JavaScript, C/C++, Python, HTML/CSS, PostgreSQL, MongoDB, Arduino</div>
+        <div><strong>Certifications:</strong> Infosys Springboard (Python, Big Data, Azure DevOps), Saylor CS102</div>
+      </div>
+
+      <div class="space-y-3">
+        <button onclick="window.print()" class="w-full py-3 rounded-xl bg-amber-500 text-slate-950 font-bold text-xs flex items-center justify-center space-x-2 hover:bg-amber-400 transition-all shadow-lg shadow-amber-500/20">
+          <i data-lucide="printer" class="w-4 h-4"></i>
+          <span>Save as PDF / Print</span>
+        </button>
+        <a href="mailto:samirjana1706@gmail.com?subject=Requesting Samir Jana CV PDF" class="w-full py-2.5 rounded-xl bg-slate-800 text-slate-300 font-semibold text-xs flex items-center justify-center space-x-2 hover:text-white">
+          <i data-lucide="mail" class="w-4 h-4"></i>
+          <span>Request via Email</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: PHOTO PREVIEW -->
+  <div id="photo-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md">
+    <div class="relative w-full max-w-md bg-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-8 shadow-2xl">
+      <button onclick="document.getElementById('photo-modal').classList.add('hidden')" class="absolute top-5 right-5 p-2 rounded-xl bg-slate-800 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      
+      <h3 class="text-xl font-heading font-bold text-white mb-2">Preview Your Photo</h3>
+      <p class="text-xs text-slate-400 mb-6">Test how your photo looks on the portfolio right now in your browser before permanently saving it!</p>
+
+      <div class="space-y-4">
+        <div>
+          <label class="block text-xs font-mono font-semibold text-slate-300 uppercase tracking-wider mb-2">Upload Image File</label>
+          <input type="file" id="photo-file-input" accept="image/*" class="w-full text-xs text-slate-400 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-semibold file:bg-amber-500 file:text-slate-950 hover:file:bg-amber-400 cursor-pointer" onchange="handlePhotoUpload(event)">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EMBEDDED JAVASCRIPT ENGINE (Zero external JS dependency) -->
+  <script>
+    // 1. Particle Canvas Network
+    class ParticleNetwork {
+      constructor(canvasId) {
+        this.canvas = document.getElementById(canvasId);
+        if (!this.canvas) return;
+        this.ctx = this.canvas.getContext('2d');
+        this.particles = [];
+        this.mouse = { x: null, y: null, radius: 150 };
+        this.resize();
+        this.createParticles();
+        this.bindEvents();
+        this.animate();
+      }
+      resize() {
+        this.width = this.canvas.width = this.canvas.parentElement.offsetWidth || window.innerWidth;
+        this.height = this.canvas.height = this.canvas.parentElement.offsetHeight || window.innerHeight;
+      }
+      createParticles() {
+        this.particles = [];
+        const count = Math.min(Math.max(Math.floor((this.width * this.height) / 14000), 30), 80);
+        for (let i = 0; i < count; i++) {
+          this.particles.push({
+            x: Math.random() * this.width,
+            y: Math.random() * this.height,
+            vx: (Math.random() - 0.5) * 0.6,
+            vy: (Math.random() - 0.5) * 0.6,
+            radius: Math.random() * 2 + 1
+          });
+        }
+      }
+      bindEvents() {
+        window.addEventListener('resize', () => { this.resize(); this.createParticles(); });
+        window.addEventListener('mousemove', (e) => {
+          const rect = this.canvas.getBoundingClientRect();
+          this.mouse.x = e.clientX - rect.left;
+          this.mouse.y = e.clientY - rect.top;
+        });
+        window.addEventListener('mouseleave', () => { this.mouse.x = null; this.mouse.y = null; });
+      }
+      animate() {
+        this.ctx.clearRect(0, 0, this.width, this.height);
+        for (let i = 0; i < this.particles.length; i++) {
+          const p = this.particles[i];
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0 || p.x > this.width) p.vx *= -1;
+          if (p.y < 0 || p.y > this.height) p.vy *= -1;
+          this.ctx.beginPath();
+          this.ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          this.ctx.fillStyle = 'rgba(245, 158, 11, 0.5)';
+          this.ctx.fill();
+
+          for (let j = i + 1; j < this.particles.length; j++) {
+            const p2 = this.particles[j];
+            const dx = p.x - p2.x; const dy = p.y - p2.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 100) {
+              this.ctx.beginPath();
+              this.ctx.strokeStyle = `rgba(245, 158, 11, ${(1 - dist / 100) * 0.25})`;
+              this.ctx.lineWidth = 0.8;
+              this.ctx.moveTo(p.x, p.y);
+              this.ctx.lineTo(p2.x, p2.y);
+              this.ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(() => this.animate());
+      }
+    }
+
+    // 2. Typewriter Effect
+    function initTypewriter() {
+      const el = document.getElementById('typewriter-text');
+      if (!el) return;
+      const roles = [
+        "Computer Science Engineer",
+        "Full-Stack Web Developer",
+        "Embedded Systems Enthusiast",
+        "Problem Solver (50+ Solved)"
+      ];
+      let rIdx = 0, cIdx = 0, isDel = false;
+      function tick() {
+        const cur = roles[rIdx];
+        el.textContent = isDel ? cur.substring(0, --cIdx) : cur.substring(0, ++cIdx);
+        let delay = isDel ? 40 : 80;
+        if (!isDel && cIdx === cur.length) { delay = 2000; isDel = true; }
+        else if (isDel && cIdx === 0) { isDel = false; rIdx = (rIdx + 1) % roles.length; delay = 400; }
+        setTimeout(tick, delay);
+      }
+      tick();
+    }
+
+    // 3. Theme Toggle
+    function initTheme() {
+      const themeToggle = document.getElementById('theme-toggle');
+      const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+      const isDark = () => document.documentElement.classList.contains('dark');
+      
+      function toggle() {
+        const dark = document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', dark ? 'dark' : 'light');
+        document.querySelectorAll('.theme-sun-icon').forEach(s => s.style.display = dark ? 'block' : 'none');
+        document.querySelectorAll('.theme-moon-icon').forEach(m => m.style.display = dark ? 'none' : 'block');
+        showToast(dark ? '🌙 Dark Mode Activated' : '☀️ Light Mode Activated');
+      }
+
+      if (themeToggle) themeToggle.onclick = toggle;
+      if (themeToggleMobile) themeToggleMobile.onclick = toggle;
+    }
+
+    // 4. Scroll & Mobile Drawer
+    function initNavigation() {
+      const drawer = document.getElementById('mobile-drawer');
+      const menuBtn = document.getElementById('mobile-menu-btn');
+      const closeBtn = document.getElementById('close-drawer-btn');
+      const backToTop = document.getElementById('back-to-top');
+      const progressBar = document.getElementById('scroll-progress');
+
+      if (menuBtn) menuBtn.onclick = () => drawer.classList.remove('translate-x-full');
+      if (closeBtn) closeBtn.onclick = () => drawer.classList.add('translate-x-full');
+      document.querySelectorAll('.mobile-nav-link').forEach(l => {
+        l.onclick = () => drawer.classList.add('translate-x-full');
+      });
+
+      window.onscroll = () => {
+        const total = document.documentElement.scrollHeight - window.innerHeight;
+        if (progressBar) progressBar.style.width = `${(window.scrollY / total) * 100}%`;
+        if (backToTop) {
+          if (window.scrollY > 400) {
+            backToTop.classList.remove('opacity-0', 'pointer-events-none');
+            backToTop.classList.add('opacity-100');
+          } else {
+            backToTop.classList.add('opacity-0', 'pointer-events-none');
+            backToTop.classList.remove('opacity-100');
+          }
+        }
+      };
+    }
+
+    // 5. Toast Notification
+    function showToast(msg) {
+      const container = document.getElementById('toast-container');
+      if (!container) return;
+      const t = document.createElement('div');
+      t.className = 'p-3.5 rounded-xl shadow-2xl border border-amber-500/40 bg-slate-900/95 text-white text-xs font-semibold backdrop-blur-md transition-all duration-300 transform translate-y-2 opacity-0';
+      t.textContent = msg;
+      container.appendChild(t);
+      setTimeout(() => { t.classList.remove('translate-y-2', 'opacity-0'); }, 10);
+      setTimeout(() => { t.classList.add('opacity-0'); setTimeout(() => t.remove(), 300); }, 3000);
+    }
+
+    function copyText(txt) {
+      navigator.clipboard.writeText(txt).then(() => {
+        showToast(`📋 Copied "${txt}" to clipboard!`);
+      });
+    }
+
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value;
+      showToast(`🚀 Thank you, ${name}! Your message has been recorded.`);
+      e.target.reset();
+    }
+
+    function openArchitectureModalDirect() {
+      const m = document.getElementById('architecture-modal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function openCvModalDirect() {
+      const m = document.getElementById('cv-modal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function openPhotoModalDirect() {
+      const m = document.getElementById('photo-modal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+
+    function handlePhotoUpload(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = (event) => {
+          const avatarContainer = document.getElementById('hero-avatar-img').parentElement;
+          avatarContainer.innerHTML = `<img src="${event.target.result}" class="w-full h-full object-cover">`;
+          showToast('✨ Photo preview updated!');
+          document.getElementById('photo-modal').classList.add('hidden');
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+
+    function initClock() {
+      const el = document.getElementById('live-time-display');
+      if (!el) return;
+      setInterval(() => {
+        el.textContent = `${new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true })} (IST)`;
+      }, 1000);
+    }
+
+    // Init All on DOM Load
+    document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      new ParticleNetwork('particles-canvas');
+      initTypewriter();
+      initNavigation();
+      initClock();
+      if (window.lucide) window.lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
